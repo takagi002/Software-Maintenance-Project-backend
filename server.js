@@ -36,7 +36,6 @@ const Recipe = mongoose.model('Recipe', {
   ComponentsList: String, 
   PreparationMethod: String, 
   OwnerCode: Number, 
-  ImgSrc: String, 
   IsSeen: Boolean, 
   Description: String 
 });
