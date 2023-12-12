@@ -10,12 +10,12 @@ describe('User API Endpoints', () => {
       expect(res.body).toHaveProperty('length');
     });
   
-    it('should login a user', async () => {
+    it('should get user by name', async () => {
       const res = await request(app)
-        .post('/api/user/login')
-        .send({ Name: 'TestUser', Password: 'TestPassword' });
+        .post('/api/user/byName')
+        .send({ name: 'TestUser' });
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toHaveProperty('success', 1);
+      expect(res.body).toHaveProperty('Name', 'TestUser');
     });
   
     it('should add a new user', async () => {
