@@ -6,7 +6,7 @@ pipeline {
             bat 'npm -- --forceExit'
         }
     }
-    Stage ('Cleanup'){
+    stage ('Cleanup'){
       steps{
         script{
             bat 'rm package-lock.json'
