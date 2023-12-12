@@ -2,8 +2,10 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-        script {
-            bat 'npm -- --forceExit'
+        steps{
+            script {
+                bat 'npm -- --forceExit'
+            }
         }
     }
     stage ('Cleanup'){
