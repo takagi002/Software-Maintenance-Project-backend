@@ -36,7 +36,6 @@ const Recipe = mongoose.model('Recipe', {
   ComponentsList: String, 
   PreparationMethod: String, 
   OwnerCode: Number, 
-  ImgSrc: String, 
   IsSeen: Boolean, 
   Description: String 
 });
@@ -55,16 +54,10 @@ app.get('/api/user/allUsers', async (req, res) => {
   }
 });
 
-app.post('/api/user/login', async (req, res) => {
+app.post('/api/user/byName', async (req, res) => {
   try {
-    const loginUser = new User(req.body);
-    const user = await User.findOne({ Name: loginUser.Name, Password: loginUser.Password });
-
-    if (user) {
-      res.json({ success: 1 });
-    } else {
-      res.json({ success: 0 });
-    }
+    const user = await User.findOne({ Name: { $regex: new RegExp(req.body.name, "i") }  });
+    res.json(user);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
