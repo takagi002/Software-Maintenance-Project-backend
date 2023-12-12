@@ -1,10 +1,17 @@
 pipeline {
   agent any
   stages {
+  stage('Init') {
+          steps{
+              script {
+                  bat 'npm install'
+              }
+          }
+      }
     stage('Test') {
         steps{
             script {
-                bat 'npm -- --forceExit'
+                bat 'npm test -- -- forceExit'
             }
         }
     }
