@@ -102,8 +102,8 @@ app.get('/api/category/allCategory', async (req, res) => {
 
 app.post('/api/category/categoryByCode', async (req, res) => {
   try {
-    const { code } = req.body;
-    const category = await Category.findOne({ Code: code });
+    const { Code } = req.body;
+    const category = await Category.findOne({ Code });
     res.json(category);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
@@ -150,7 +150,8 @@ app.post('/api/recipes/change', async (req, res) => {
 });
 
 // Start the Express server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+module.exports = { app, server };

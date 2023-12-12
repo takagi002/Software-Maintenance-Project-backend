@@ -4,7 +4,7 @@
   "description": "test",
   "main": "3000",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,9 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^8.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
   }
 }
