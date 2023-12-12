@@ -9,7 +9,7 @@ pipeline {
     Stage ('Cleanup'){
       steps{
         script{
-            bat 'rmdir .\node_modules\'
+            bat 'rm package-lock.json'
         }
       }
     }
