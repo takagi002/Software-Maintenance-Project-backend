@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Test') {
         script {
-            bat 'npm test'
+            bat 'npm -- --forceExit'
         }
     }
     Stage ('Cleanup'){
       steps{
         script{
-            bat '--forceExit'
+            bat 'rmdir .\node_modules\'
         }
       }
     }
